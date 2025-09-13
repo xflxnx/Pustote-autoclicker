@@ -65,20 +65,6 @@ DWORD WINAPI MainThread(LPVOID lpParam) {
             break;
         }
 
-        if (vars::main::g_bindMode == 1) {
-            std::unique_lock<std::mutex> lock(vars::Working::wkMtx);
-            if (GetAsyncKeyState(vars::main::g_bindBtn) && 
-            vars::Working::canSwitchToggle) {
-                
-                vars::Working::ToggledBtn = !vars::Working::ToggledBtn;
-                vars::Working::canSwitchToggle = false;
-            }
-            if (!GetAsyncKeyState(vars::main::g_bindBtn) &&
-                !vars::Working::canSwitchToggle) {
-                vars::Working::canSwitchToggle = true;
-            }
-        }
-
         if (vars::main::g_bindMode == 0) {
             if (GetAsyncKeyState(vars::main::g_bindBtn) && vars::Working::CanWork) {
                 vars::Working::working = true;
@@ -86,9 +72,17 @@ DWORD WINAPI MainThread(LPVOID lpParam) {
                 SendInput(1, &inp, sizeof(inp));
                 vars::misc::cv.wait_for(lock, std::chrono::milliseconds(vars::main::g_holdDuration), [] {return vars::Working::shouldStop; });
                 SendInput(1, &inp2, sizeof(inp2));
-                vars::misc::cv.wait_for(lock, std::chrono::milliseconds(vars::main::g_clickInterval), [] {return vars::Working::shouldStop; });
+                if (vars::main::g_clickInterval > 1) {
+                    vars::misc::cv.wait_for(lock, std::chrono::milliseconds(vars::main::g_clickInterval), [] {return vars::Working::shouldStop; });
+                }
+                if (vars::Working::shouldStop) {
+                    vars::Working::shouldStop = false;
+                }
             }
             else {
+                if (vars::Working::shouldStop) {
+                    vars::Working::shouldStop = false;
+                }
                 vars::Working::working = false;
             }
         }

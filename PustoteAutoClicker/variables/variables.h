@@ -4,7 +4,6 @@
 #include <d3d11.h>
 #include "../include/imgui/imgui.h"
 #include <string>
-#include <atomic>
 #include <condition_variable>
 #include <mutex>
 
@@ -93,8 +92,6 @@ namespace vars {
 		inline bool shouldStop = false;
 
 		inline bool ToggledBtn = false;
-
-		inline std::mutex wkMtx;
 	}
 	namespace Input {
 		inline bool DraggingDragArea = false;

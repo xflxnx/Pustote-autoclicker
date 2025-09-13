@@ -104,17 +104,25 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
 
-        if (vars::main::g_bindMode == 0 && !GetAsyncKeyState(vars::main::g_bindBtn) && !vars::Working::shouldStop) {
-            std::unique_lock<std::mutex> lock(vars::Working::wkMtx);
-            vars::Working::shouldStop = true;
-        }
-        
-        if (vars::main::g_bindMode == 1 && vars::Working::ToggledBtn && vars::Working::canSwitchToggle) {
-            if (GetAsyncKeyState(vars::main::g_bindBtn)) {
-                std::unique_lock<std::mutex> lock(vars::Working::wkMtx);
-                vars::Working::shouldStop = true;
+        if (vars::main::g_bindMode == 1) {
+            if (GetAsyncKeyState(vars::main::g_bindBtn) &&
+                vars::Working::canSwitchToggle) {
+
+                vars::Working::ToggledBtn = !vars::Working::ToggledBtn;
                 vars::Working::canSwitchToggle = false;
+                if (!vars::Working::ToggledBtn) {
+                    vars::Working::shouldStop = true;
+                }
+                vars::misc::cv.notify_all();
             }
+            if (!GetAsyncKeyState(vars::main::g_bindBtn) &&
+                !vars::Working::canSwitchToggle) {
+                vars::Working::canSwitchToggle = true;
+            }
+        }
+        if (vars::main::g_bindMode == 0 && !GetAsyncKeyState(vars::main::g_bindBtn) && !vars::Working::shouldStop && vars::Working::working) {
+            vars::Working::shouldStop = true;
+            vars::misc::cv.notify_all();
         }
 
         ImGui::NewFrame();
