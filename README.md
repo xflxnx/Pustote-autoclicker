@@ -19,6 +19,8 @@
 - Auto save
 - Language switch
 
+<hr></hr>
+
 ### Compatibility
 
 - Windows 10/11
