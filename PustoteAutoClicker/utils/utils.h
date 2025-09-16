@@ -1,5 +1,5 @@
 #pragma once
-#include "../functions/Functions.h"
+#include "../utils/utils.h"
 #include "../include/imgui/imgui.h"
 #include <d3d11.h>
 #include <string>

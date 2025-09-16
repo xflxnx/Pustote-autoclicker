@@ -42,21 +42,18 @@
     <ClCompile Include="include\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ui\Gui_functions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ui\ui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="functions\Functions.cpp">
+    <ClCompile Include="utils\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\ui_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="variables\variables.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\Gui_functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ui\ui.h">
@@ -74,13 +71,16 @@
     <ClInclude Include="images\images.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="functions\Functions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="font\font.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainThread.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ui_utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

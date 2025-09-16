@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="functions\Functions.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
@@ -137,19 +136,20 @@
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="PustoteAutoClicker.cpp" />
-    <ClCompile Include="ui\Gui_functions.cpp" />
     <ClCompile Include="ui\ui.cpp" />
+    <ClCompile Include="ui\ui_utils.cpp" />
+    <ClCompile Include="utils\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="font\font.h" />
-    <ClInclude Include="functions\Functions.h" />
     <ClInclude Include="images\images.h" />
     <ClInclude Include="images\images.hpp" />
     <ClInclude Include="MainThread.hpp" />
     <ClInclude Include="resource\resource.h" />
     <ClInclude Include="save\Save.hpp" />
-    <ClInclude Include="ui\Gui_functions.h" />
     <ClInclude Include="ui\ui.h" />
+    <ClInclude Include="ui\ui_utils.h" />
+    <ClInclude Include="utils\utils.h" />
     <ClInclude Include="variables\variables.h" />
   </ItemGroup>
   <ItemGroup>

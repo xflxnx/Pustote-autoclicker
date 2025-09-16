@@ -1,5 +1,5 @@
 #include <d3d11.h>
-#include "Functions.h"
+#include "utils.h"
 #include "../variables/variables.h"
 #include "../include/imgui/imgui.h"
 #include "../include/imgui/imgui_impl_win32.h"

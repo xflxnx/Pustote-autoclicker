@@ -16,7 +16,7 @@
 #include "images/images.hpp"
 #include "variables/variables.h"
 #include "save/Save.hpp"
-#include "functions/Functions.h"
+#include "utils/utils.h"
 #include "ui/ui.h"
 #include "MainThread.hpp"
 

@@ -1,8 +1,8 @@
 #include "ui.h"
 #include "../include/imgui/imgui.h"
 #include "../variables/variables.h"
-#include "../ui/Gui_functions.h"
-#include "../functions/Functions.h"
+#include "../ui/ui_utils.h"
+#include "../utils/utils.h"
 
 namespace ui {
 	void Draw() {

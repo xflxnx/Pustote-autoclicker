@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "../include/imgui/imgui.h"
 #include "../variables/variables.h"
-#include "../functions/Functions.h"
+#include "../utils/utils.h"
 #include "../include/imgui/imgui_internal.h"
 
 namespace gui {
